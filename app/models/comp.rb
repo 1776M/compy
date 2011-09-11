@@ -1,6 +1,6 @@
 class Comp < ActiveRecord::Base
 
-	attr_accessible :prize, :question, :answer, :answer_one, answer_two, answer_three
+	attr_accessible :prize, :question, :answer, :answer_one, :answer_two, :answer_three
 
        has_and_belongs_to_many :users 
        
