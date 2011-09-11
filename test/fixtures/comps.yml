@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  prize: MyString
+  answer_one: MyString
+  answer_two: MyString
+  answer_three: MyString
+  answer: MyString
+  question: MyString
+  user_id: 1
+
+two:
+  prize: MyString
+  answer_one: MyString
+  answer_two: MyString
+  answer_three: MyString
+  answer: MyString
+  question: MyString
+  user_id: 1

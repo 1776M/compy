@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110910110122) do
+ActiveRecord::Schema.define(:version => 20110911163810) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(:version => 20110910110122) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comps", :force => true do |t|
+    t.string   "prize"
+    t.string   "answer_one"
+    t.string   "answer_two"
+    t.string   "answer_three"
+    t.string   "answer"
+    t.string   "question"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comps", ["created_at"], :name => "index_comps_on_created_at"
+  add_index "comps", ["user_id"], :name => "index_comps_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -37,8 +52,10 @@ ActiveRecord::Schema.define(:version => 20110910110122) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "comp_id"
   end
 
+  add_index "users", ["comp_id"], :name => "index_users_on_comp_id"
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
