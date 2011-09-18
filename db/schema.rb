@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110911163810) do
+ActiveRecord::Schema.define(:version => 20110918135615) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(:version => 20110911163810) do
 
   add_index "comps", ["created_at"], :name => "index_comps_on_created_at"
   add_index "comps", ["user_id"], :name => "index_comps_on_user_id"
+
+  create_table "comps_users", :id => false, :force => true do |t|
+    t.integer "comp_id"
+    t.integer "user_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
