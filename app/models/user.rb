@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
    
   has_many :authentications
-  has_and_belongs_to_many :comps 
+  has_and_belongs_to_many :comps, :join_table => 'users_comps' 
 
 
   # Include default devise modules. Others available are:

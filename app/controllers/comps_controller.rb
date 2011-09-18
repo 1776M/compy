@@ -1,7 +1,7 @@
 class CompsController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find(current_user.id) 
     @comp = @user.comps 
   end
 
@@ -21,6 +21,10 @@ class CompsController < ApplicationController
     Comp.find(params[:id]).destroy
     flash[:success] = "Competition deleted"
     render home_path
+  end
+
+  def show
+    @comp = Comp.find(params[:id])  
   end
 
 end

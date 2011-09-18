@@ -1,0 +1,14 @@
+<tr>
+  <td class="user">
+    <span class="content"><%= comp.prize %></span>
+  </td>
+  <% if current_user?(comp.user) %>
+  <td>
+    <%= link_to "delete", comp, :method => :delete,
+                                :confirm => "You sure?",
+                                :title => comp.prize %>
+  </td>
+
+  <% end %>
+  <br />
+</tr>

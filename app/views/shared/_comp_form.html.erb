@@ -1,0 +1,25 @@
+<%= form_for @comp do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.text_field :prize %>
+  </div>
+  <div class="field">
+    <%= f.text_field :answer_one %>
+  </div>
+  <div class="field">
+    <%= f.text_field :answer_two %>
+  </div>
+  <div class="field">
+    <%= f.text_field :answer_three %>
+  </div>
+  <div class="field">
+    <%= f.text_field :answer %>
+  </div>
+  <div class="field">
+    <%= f.text_field :question %>
+  </div>
+  <%= hidden_field_tag :user_id, @user.id %>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
