@@ -1,8 +1,8 @@
 class CompsController < ApplicationController
 
   def index
-    @user = User.find(current_user.id) 
-    @comp = @user.comps 
+    @user = User.find(current_user.id)    
+    @comps = Comp.find(:all, :conditions => [" user_id = ?", current_user.id])
   end
 
   def create
@@ -10,9 +10,9 @@ class CompsController < ApplicationController
     @comp  = @user.comps.build(params[:comp])
     if @comp.save
       flash[:success] = "Competition created!"
-      render root_path
+      render 'index'
     else
-      render root_path
+      render 'index'
     end
   end
 
@@ -20,7 +20,7 @@ class CompsController < ApplicationController
     @comp = Comp.find(params[:id])
     Comp.find(params[:id]).destroy
     flash[:success] = "Competition deleted"
-    render home_path
+    render 'show'
   end
 
   def show

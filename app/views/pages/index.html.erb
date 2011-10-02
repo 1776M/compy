@@ -1,5 +1,6 @@
-<h1>Pages#index</h1>
+<br />
+<% if current_user %>
+<%= link_to "Create new competition", new_comp_path %> <br />
+<%= link_to "See all your competitions", 'comps' %>
+<% end %>
 
-<%= link_to "Create new competition", new_comp_path %>
-
-<p>Find me in app/views/pages/index.html.erb</p>

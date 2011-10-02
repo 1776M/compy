@@ -1,7 +1,7 @@
 Compy::Application.routes.draw do
 
   match '/auth/:provider/callback' => 'authentications#create'
-  devise_for :users, :path_prefix => 'd', :controllers => {:registrations => 'registrations', :sessions => 'users/sessions'}
+  devise_for :users
   resources  :users
 
   resources :authentications

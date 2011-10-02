@@ -12,4 +12,6 @@ class Comp < ActiveRecord::Base
        validates :answer_three, :presence => true
 	validates :user_id, :presence => true
 
+
+
 end
