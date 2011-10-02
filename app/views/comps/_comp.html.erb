@@ -3,14 +3,10 @@
     <span class="content"><%= comp.id %></span>
   </td>
   <td>
-    <%= link_to "delete", comp, :method => :delete,
-                                :confirm => "You sure?",
-                                :title => comp.prize %>
+    <%= link_to "delete", comp, :method => :delete %>
   </td>
   <td>
-    <%= link_to "edit", comp,   :method => :edit,
-                                :confirm => "You sure?",
-                                :title => comp.prize %>
+    <%= link_to "edit", edit_comp_path(comp.id) %>
   </td>
 
   <br />

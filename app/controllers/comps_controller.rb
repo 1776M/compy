@@ -10,9 +10,9 @@ class CompsController < ApplicationController
     @comp  = @user.comps.build(params[:comp])
     if @comp.save
       flash[:success] = "Competition created!"
-      render 'index'
+      redirect_to root_path
     else
-      render 'index'
+      redirect_to root_path
     end
   end
 
@@ -20,7 +20,7 @@ class CompsController < ApplicationController
     @comp = Comp.find(params[:id])
     Comp.find(params[:id]).destroy
     flash[:success] = "Competition deleted"
-    render 'show'
+    redirect_to root_path
   end
 
   def show
@@ -33,6 +33,17 @@ class CompsController < ApplicationController
 
   def edit
       @comp = Comp.find(params[:id])   
+  end
+
+  def update
+    @comp = Comp.find(params[:id])
+    if @comp.update_attributes(params[:comp])
+      flash[:success] = "Competition updated"
+      redirect_to @comp
+    else
+      @title = "Edit user"
+      render 'edit'
+    end
   end
 
 end
