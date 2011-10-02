@@ -10,9 +10,9 @@ class CompsController < ApplicationController
     @comp  = @user.comps.build(params[:comp])
     if @comp.save
       flash[:success] = "Competition created!"
-      render home_path
+      render root_path
     else
-      render home_path
+      render root_path
     end
   end
 
@@ -25,6 +25,14 @@ class CompsController < ApplicationController
 
   def show
     @comp = Comp.find(params[:id])  
+  end
+
+  def new
+      @comp = Comp.new
+  end
+
+  def edit
+      @comp = Comp.find(params[:id])   
   end
 
 end
