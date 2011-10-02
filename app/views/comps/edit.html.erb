@@ -24,7 +24,6 @@
     <%= f.label :choice_three %><br />
     <%= f.text_field :answer_three %>
   </div>
-    <%= f.label current_user.id %><br />
     <%= hidden_field_tag :user_id, current_user.id %>
   <div class="actions">
     <%= f.submit "Submit" %>
