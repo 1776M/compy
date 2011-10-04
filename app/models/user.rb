@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
    
-  has_many :authentications
-  has_and_belongs_to_many :comps
+  	has_many :authentications
+
+  	has_many :entrants
+	has_many :comps, :through => :entrants  
 
 
   # Include default devise modules. Others available are:
